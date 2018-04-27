@@ -28,7 +28,7 @@ char* dynamic(char*ch,struct todo *a){
     p=(char*)malloc(len+1);
     strcpy(p, ch);
     return p;
-}
+};
 
 //  ADD TASKS
 
