@@ -42,6 +42,7 @@ void addTasks{
 int main()
 {
     struct todo *st = NULL, *ps;
+    int menu;
     
     
     
@@ -52,7 +53,18 @@ int main()
     printf("\t 1: Add a Task \n");
     printf("\t 2: Add Multiple Tasks of same date \n");
     printf("Mark Completed Tasks \n");
-    printf("\t 3: Tasks Done");
+    printf("\t 3: Tasks Done\n");
+    
+    scanf("%d", &menu);
+    
+    switch (menu) {
+        case 1:
+            //
+            break;
+            
+        default:
+            break;
+    }
     
 
     
