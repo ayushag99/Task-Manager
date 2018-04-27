@@ -7,9 +7,19 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+int main() {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return 0;
 }
