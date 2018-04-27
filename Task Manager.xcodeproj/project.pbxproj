@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		2AFC94F82093222200BA81A9 /* Task Manager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Task Manager"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AFC94FB2093222200BA81A9 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		2AFC95022093231100BA81A9 /* Data */ = {isa = PBXFileReference; lastKnownFileType = text; path = Data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				2AFC94FB2093222200BA81A9 /* main.c */,
+				2AFC95022093231100BA81A9 /* Data */,
 			);
 			path = "Task Manager";
 			sourceTree = "<group>";
