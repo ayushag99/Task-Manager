@@ -11,11 +11,12 @@
 #include <stdlib.h>
 
 //    STRUCTURE THAT WILL TAKE DATA OF A TASK
+//enum priority{ yes=1, no=0};
 
 struct todo{
     char *task;
     char *date;
-//    bool priority;
+//    enum priority bool;
 };
 
 //  Dynamic memory allocation to entity strings of structure
@@ -32,13 +33,6 @@ char* dynamic(char*ch,struct todo *a){
 
 //  ADD TASKS
 
-void addTasks{
-    
-    
-    
-    
-};
-
 int main()
 {
     struct todo *st = NULL, *ps;
@@ -46,23 +40,25 @@ int main()
     
     
     
-    
+    sos:
     //MENU
     printf("MENU:  \n");
     printf("ADD TAKS");
-    printf("\t 1: Add a Task \n");
-    printf("\t 2: Add Multiple Tasks of same date \n");
-    printf("Mark Completed Tasks \n");
-    printf("\t 3: Tasks Done\n");
+//    printf("\t 1: Add a Task \n");
+//    printf("\t 2: Add Multiple Tasks of same date \n");
+//    printf("Mark Completed Tasks \n");
+//    printf("\t 3: Tasks Done\n");
     
     scanf("%d", &menu);
     
     switch (menu) {
         case 1:
-            //
+            //Adding Tasks
+            printf("Enter your tasks")
             break;
             
         default:
+            goto sos;
             break;
     }
     
