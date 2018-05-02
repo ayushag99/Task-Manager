@@ -54,7 +54,7 @@ int main()
     switch (menu) {
         case 1:
             //Adding Tasks
-            printf("Enter your tasks")
+            printf("Enter your tasks");
             break;
             
         default:
