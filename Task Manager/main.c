@@ -21,7 +21,7 @@ struct todo{
 
 //  Dynamic memory allocation to entity strings of structure
 
-char* dynamic(char*ch){
+char* dynamic(char*ch, struct todo *a){
     
     char *p;
     unsigned long int len;
@@ -32,33 +32,31 @@ char* dynamic(char*ch){
 };
 
 //  ADD TASKS
-void addtask(struct todo *st ){
+void addtask(struct todo *a ){
     //Add name of task
     char name[50];
-    int i=0;
-    
-    printf("Enter task name: ");
-    gets(name);
-    (st+i)->task=dynamic(name);
-    printf("Enter Date:\n");
-    printf("Enter Day: ");
-    gets((st+i)->date[0]);
-    printf("Enter Month: ");
-    gets((st+i)->date[0]);
-    printf("Enter Year: ");
-    gets((st+i)->date[0]);
-    filewrite(st);
-};
-//  WRITING CONTENTS IN FILE
-
-void filewrite(struct todo *st){
+    int i=0,j;
     FILE *fp;
     fp=fopen("/Users/ayush/Desktop/Task Manager/Task Manager/Data.txt","w");
-    int i=0,j;
-    fputs((st+i)->task, fp);
+    
+    printf("Enter task name: ");
+    getchar();
+    gets(name);
+    (a)->task=dynamic(name,a);
+    printf("Enter Date:\n");
+    printf("Enter Day: ");
+    gets(a->date[0]);
+    printf("Enter Month: ");
+    gets(a->date[1]);
+    printf("Enter Year: ");
+    gets(a->date[2]);
+//  WRITING CONTENTS IN FILE
+
+
+    fputs((a+i)->task, fp);
     fputc('\t', fp);
     for(j=0;j<3;j++){
-        fputs((st+i)->date[j], fp);
+        fputs((a+i)->date[j], fp);
         fputc('\t', fp);
     }
 }
@@ -66,14 +64,14 @@ void filewrite(struct todo *st){
 
 int main()
 {
-    struct todo *st = NULL;
+    struct todo* t;
     int menu;
 
     sos:
     //MENU
     printf("MENU:  \n");
     printf("ADD TAKS");
-//    printf("\t 1: Add a Task \n");
+    printf("\t 1: Add a Task \n");
 //    printf("\t 2: Add Multiple Tasks of same date \n");
 //    printf("Mark Completed Tasks \n");
 //    printf("\t 3: Tasks Done\n");
@@ -84,7 +82,7 @@ int main()
         case 1:
             //Adding Tasks
             printf("Enter your tasks");
-            addtask(st);
+            addtask( t );
             break;
             
         default:
