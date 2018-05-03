@@ -14,7 +14,7 @@
 
 struct todo{
     char *task;
-    char date[8];
+    char date[9];
 };
 
 //  Dynamic memory allocation to entity strings of structure
@@ -30,7 +30,7 @@ char* dynamic(char*ch, struct todo *a){
 };
 
 //  ADD TASKS
-void addtask(struct todo *a ,int n){
+void addtask(struct todo *a ,int n, int flag){
     //Add name of task
     char name[50];
     int i=0;
@@ -40,11 +40,22 @@ void addtask(struct todo *a ,int n){
     
     for (i=0; i<n; i++){
         printf("Enter task name: \n");
-        getchar();
+        if (i==0) {
+            getchar();
+        }
+        
         gets(name);
+        
         (a+i)->task=dynamic(name,a);
-        printf("Enter Date as dd/mm/yy:\n");
-        gets((a+i)->date);
+        if( (flag==1)||((flag==2)&&(i==0)) ){
+            printf("Enter Date as dd/mm/yy:\n");
+            gets((a+i)->date);
+            (a+i)->date[8]='\0';
+        }
+        else if((flag==2)&&(i!=0)){
+            strcpy((a+i)->date, (a+0)->date);
+        }
+        
 
     
         //  WRITING CONTENTS IN FILE
@@ -54,6 +65,13 @@ void addtask(struct todo *a ,int n){
         fputc('\n', fp);
     }
 }
+
+
+
+
+
+
+
 
 
 int main()
@@ -77,7 +95,13 @@ int main()
             //Adding Tasks
             printf("Enter number of tasks");
             scanf("%d",&n);
-            addtask( t ,n);
+            addtask( t ,n,1);
+            break;
+        
+        case 2:
+            printf("Enter number of tasks");
+            scanf("%d",&n);
+            addtask( t ,n,2);
             break;
             
         default:
