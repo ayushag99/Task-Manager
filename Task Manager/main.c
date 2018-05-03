@@ -15,13 +15,13 @@
 
 struct todo{
     char *task;
-    char *date;
+    char date[3][2];
 //    enum priority bool;
 };
 
 //  Dynamic memory allocation to entity strings of structure
 
-char* dynamic(char*ch,struct todo *a){
+char* dynamic(char*ch){
     
     char *p;
     unsigned long int len;
@@ -32,14 +32,43 @@ char* dynamic(char*ch,struct todo *a){
 };
 
 //  ADD TASKS
+void addtask(struct todo *st ){
+    //Add name of task
+    char name[50];
+    int i=0;
+    
+    printf("Enter task name: ");
+    gets(name);
+    (st+i)->task=dynamic(name);
+    printf("Enter Date:\n");
+    printf("Enter Day: ");
+    gets((st+i)->date[0]);
+    printf("Enter Month: ");
+    gets((st+i)->date[0]);
+    printf("Enter Year: ");
+    gets((st+i)->date[0]);
+    filewrite(st);
+};
+//  WRITING CONTENTS IN FILE
+
+void filewrite(struct todo *st){
+    FILE *fp;
+    fp=fopen("/Users/ayush/Desktop/Task Manager/Task Manager/Data.txt","w");
+    int i=0,j;
+    fputs((st+i)->task, fp);
+    fputc('\t', fp);
+    for(j=0;j<3;j++){
+        fputs((st+i)->date[j], fp);
+        fputc('\t', fp);
+    }
+}
+
 
 int main()
 {
-    struct todo *st = NULL, *ps;
+    struct todo *st = NULL;
     int menu;
-    
-    
-    
+
     sos:
     //MENU
     printf("MENU:  \n");
@@ -55,6 +84,7 @@ int main()
         case 1:
             //Adding Tasks
             printf("Enter your tasks");
+            addtask(st);
             break;
             
         default:
